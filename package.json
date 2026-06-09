@@ -1,0 +1,27 @@
+{
+  "name": "poo_08-06",
+  "version": "1.0.0",
+  "description": "Programación Orientada a Objetos 2do Año",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "ts-node src/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TizianaOchoa/POO_08-06.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TizianaOchoa/POO_08-06/issues"
+  },
+  "homepage": "https://github.com/TizianaOchoa/POO_08-06#readme",
+  "devDependencies": {
+    "@types/node": "^25.9.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

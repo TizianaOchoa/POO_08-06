@@ -16,24 +16,19 @@ import { EmailNotificationObserver } from "./Observers/EmailNotificationObserver
 import { MetricsServiceObserver } from "./Observers/MetricsServiceObserver";
 import { AccessControlObserver } from "./Observers/AccessControlObserver";
 
-const userRepository =
-new UserRepository();
+// Repositories
+const userRepository = new UserRepository();
+const subscriptionRepository = new SubscriptionRepository();
 
-const subscriptionRepository =
-new SubscriptionRepository();
+// Services
+const userService = new UserService(userRepository);
+const subscriptionService = new SubscriptionService(subscriptionRepository);
 
-const userService =
-new UserService(userRepository);
+// Controllers
+const userController = new UserController(userService);
+const subscriptionController = new SubscriptionController(subscriptionService);
 
-const subscriptionService =
-new SubscriptionService(subscriptionRepository);
-
-const userController =
-new UserController(userService);
-
-const subscriptionController =
-new SubscriptionController(subscriptionService);
-
+// Usuario
 const user = new User(
     1,
     "Tiziana",
@@ -41,25 +36,25 @@ const user = new User(
     "email"
 );
 
+// Registro
 userController.register(user);
 
-const premiumPlan =
-new PremiumPlan();
+// Plan Premium
+const premiumPlan = new PremiumPlan();
 
-const subscription =
-new Subscription(
+// Suscripción
+const subscription = new Subscription(
     1,
     user,
     premiumPlan
 );
 
-subscriptionController.createSubscription(
-    subscription
-);
+subscriptionController.createSubscription(subscription);
 
-const paymentService =
-new PaymentService();
+// Pago
+const paymentService = new PaymentService();
 
+// Observers
 paymentService.addObserver(
     new EmailNotificationObserver()
 );
@@ -72,9 +67,11 @@ paymentService.addObserver(
     new AccessControlObserver()
 );
 
+// Procesar pago
 paymentService.processPayment(
     user,
     premiumPlan.price
 );
 
+console.log("\nEstado final del usuario:");
 console.log(user);

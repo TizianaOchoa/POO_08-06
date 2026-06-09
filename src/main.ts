@@ -1,15 +1,8 @@
-import { User } from "./Models/User";
-import { UserRepository } from "./Repositories/UserRepository";
+import { NotificationFactory } from "./Factories/NotificationFactory";
 
-const repository = new UserRepository();
+const notifier =
+NotificationFactory.create("email");
 
-const user = new User(
-    1,
-    "Tiziana",
-    "tizi@gmail.com",
-    "email"
+notifier.send(
+    "Bienvenido al sistema Premium"
 );
-
-repository.save(user);
-
-console.log(repository.findAll());

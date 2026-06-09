@@ -1,9 +1,12 @@
+import { User } from "../Models/User";
+import { Subscription } from "../Models/Subscription";
+
 export class DatabaseConnection {
 
     private static instance: DatabaseConnection;
 
-    public users: any[] = [];
-    public subscriptions: any[] = [];
+    public users: User[] = [];
+    public subscriptions: Subscription[] = [];
 
     private constructor() {}
 

@@ -1,8 +1,12 @@
+import { User } from "./User";
 import { Plan } from "./Plan";
 
-export class FreePlan extends Plan {
+export class Subscription {
 
-    constructor() {
-        super("Free", 0);
-    }
+    constructor(
+        public id: number,
+        public user: User,
+        public plan: Plan,
+        public active: boolean = true
+    ) {}
 }
